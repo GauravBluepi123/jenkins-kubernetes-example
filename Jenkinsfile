@@ -20,7 +20,7 @@ pipeline{
         
         stage('Build'){
             steps{
-            sh 'docker build -t gauravkumarpandey/Java:latest .'
+            sh 'docker build -t gauravkumarpandey/javaproject:latest .'
             }
         }
         
@@ -32,7 +32,7 @@ pipeline{
         
         stage('Push'){
             steps{
-                sh 'docker push gauravkumarpandey/Java:latest'
+                sh 'docker push gauravkumarpandey/javaproject:latest'
             }
         }
     }
