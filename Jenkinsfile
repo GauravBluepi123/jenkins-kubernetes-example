@@ -35,18 +35,6 @@ pipeline{
                 sh 'docker push gauravkumarpandey/javaproject:latest'
             }
         }
-        
-        stage('Deploy to k8s'){
-            steps{
-                sshagent(['k8s']){
-                    script{
-                       
-                           sh 'kubectl apply -f .'
-                            
-                    }
-               }
-            }
-        }
     }
     
     post{
