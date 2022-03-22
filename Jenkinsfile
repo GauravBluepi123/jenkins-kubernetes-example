@@ -42,13 +42,9 @@ pipeline{
                     sh 'scp -r -o StrictHostKeyChecking=no nodejsapp.yaml bluepi@192.168.49.2:/home/bluepi'
             
                     scripts{
-                            try{
-                                sh 'kubectl apply -f /home/bluepi/nodejsapp.yaml --kubeconfig=/home/bluepi/kube.yaml'
-                            }
-                            catch(error){
-                    
-                            }
-                   }
+                           sh 'kubectl apply -f /home/bluepi/nodejsapp.yaml --kubeconfig=/home/bluepi/kube.yaml'
+                            
+                    }
                }
             }
         }
