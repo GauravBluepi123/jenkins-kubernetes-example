@@ -38,10 +38,12 @@ pipeline{
         
         stage('Deploy to k8s'){
             steps{
-                scripts{
-                           sh 'kubectl apply -f /var/lib/jenkins/workspace/Docker-app-k8/nodejsapp.yaml'
+                sshagent(['k8s']){
+                    scripts{
+                           sh 'kubectl apply -f /home/bluepi/nodejsapp.yaml --kubeconfig=/home/bluepi/kube.yaml'
                             
                     }
+               }
             }
         }
     }
