@@ -41,7 +41,7 @@ pipeline{
                 sshagent(['k8s']){
                     script{
                        
-                           sh 'kubectl apply -f'
+                           sh 'kubectl apply -f /var/lib/jenkins/workspace/Docker-app-k8/nodejsapp.yaml'
                             
                     }
                }
