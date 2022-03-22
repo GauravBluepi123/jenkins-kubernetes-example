@@ -38,14 +38,10 @@ pipeline{
         
         stage('Deploy to k8s'){
             steps{
-                sshagent(['k8s']){
-                    sh 'scp -r -o StrictHostKeyChecking=no nodejsapp.yaml bluepi@192.168.49.2:/home/bluepi'
-            
-                    scripts{
-                           sh 'kubectl apply -f /home/bluepi/nodejsapp.yaml --kubeconfig=/home/bluepi/kube.yaml'
+                scripts{
+                           sh 'kubectl apply -f /var/lib/jenkins/workspace/Docker-app-k8/nodejsapp.yaml --kubeconfig=/home/bluepi/kube.yaml'
                             
                     }
-               }
             }
         }
     }
