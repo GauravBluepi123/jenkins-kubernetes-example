@@ -40,12 +40,8 @@ pipeline{
             steps{
                 sshagent(['k8s']){
                     script{
-                        try{
-                           sh 'ssh bluepi@192.168.49.2 kubectl apply -f .'
-                        }
-                        catch(error){
-                            sh 'bluepi@192.168.49.2 kubectl create -f .'
-                        }
+                       
+                           sh 'kubectl apply -f .'
                             
                     }
                }
