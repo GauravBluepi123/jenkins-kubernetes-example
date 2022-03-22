@@ -39,7 +39,7 @@ pipeline{
         stage('Deploy to k8s'){
             steps{
                 sshagent(['k8s']){
-                    scripts{
+                    script{
                         try{
                            sh 'kubectl apply -f .'
                         }
