@@ -40,7 +40,12 @@ pipeline{
             steps{
                 sshagent(['k8s']){
                     scripts{
-                           sh 'kubectl apply -f /home/bluepi/nodejsapp.yaml --kubeconfig=/home/bluepi/kube.yaml'
+                        try{
+                           sh 'kubectl apply -f .'
+                        }
+                        catch(error){
+                            sh 'kubectl create -f .'
+                        }
                             
                     }
                }
