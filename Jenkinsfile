@@ -46,6 +46,9 @@ pipeline{
                     try{
                         sh 'kubectl apply -f /home/bluepi/nodejsapp.yaml --kubeconfig=/home/bluepi/kube.yaml'
                     }
+                    catch(error){
+                    
+                    }
                 }
             }
         }
