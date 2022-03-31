@@ -3,7 +3,6 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: nodejs-app
-  namespace: default
   labels:
     app: nodejs-app
 spec:
@@ -21,6 +20,8 @@ spec:
         image: "gauravkumarpandey/javaproject:latest"
         ports:
           - containerPort: 3000
+      imagePullSecrets:
+       - name: regcred
 ---
 apiVersion: v1
 kind: Service
