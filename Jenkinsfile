@@ -39,7 +39,7 @@ pipeline{
         stage('Push to k8s'){
             steps{
                 //sh 'kubectl apply -f .'
-                kubernetesDeploy(configs: "nodejsapp.yaml", kubeconfigId: "kubernetes")
+                kubernetesDeploy(configs: "nodejsapp.yml", kubeconfigId: "kubernetes")
             }
         }
     }
